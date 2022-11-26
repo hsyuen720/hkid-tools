@@ -31,12 +31,23 @@ const GeneratorPage = () => {
   const [options, setOptions] = useState<LoaderData["options"]>(data.options);
   const [list, setList] = useState<LoaderData["list"]>(data.list);
 
-  const handleOption = useCallback((name: keyof LoaderData["options"], value: unknown) => {
-    setOptions((prev) => ({ ...prev, [name]: value }));
-    if (name === "isSingleAlphabet") setList(generate(value as boolean | null));
-  }, []);
-
   const hkid = useMemo(() => format(list, options.hasParentheses), [list, options]);
+
+  const handleOption = useCallback(
+    (name: keyof LoaderData["options"], value: unknown) => {
+      setOptions((prev) => ({ ...prev, [name]: value }));
+      if (name === "isSingleAlphabet") {
+        const list = generate(value as boolean | null);
+        const hkid = format(list, options.hasParentheses);
+        setList(list);
+        copyText(hkid);
+      } else {
+        const hkid = format(list, value as boolean);
+        copyText(hkid);
+      }
+    },
+    [options, list],
+  );
 
   const handleCopy = useCallback(() => copyText(hkid), [hkid]);
 
