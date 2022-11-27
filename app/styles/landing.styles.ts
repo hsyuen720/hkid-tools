@@ -1,18 +1,13 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import Button, { setButtonColor } from "~/components/button";
-
-const theme = {
-  background: "#cfb845",
-  color: "#141414",
-  secondaryColor: "#1d3c45",
-};
+import theme from "./theme";
 
 const styles = {
   injectGlobal: css`
     body {
-      background-color: ${theme.background};
-      color: ${theme.secondaryColor};
+      background-color: ${theme.primary};
+      color: ${theme.secondary};
       font-size: 12pt;
     }
   `,
@@ -25,18 +20,21 @@ const styles = {
     justify-content: center;
     align-items: flex-start;
     gap: 1em;
+    @media (max-width: 500px) {
+      padding: 0 2rem;
+    }
   `,
   title: styled.header`
     font-size: 1.75em;
     font-weight: bold;
-    color: ${theme.color};
+    color: ${theme.secondary};
   `,
   description: styled.span`
     font-size: 1.25em;
     font-weight: normal;
   `,
   explore: styled(Button)`
-    ${setButtonColor(theme.background, theme.color)}
+    ${setButtonColor(theme.primary, theme.secondary)}
   `,
 } as const;
 

@@ -24,7 +24,7 @@ const styles = {
   `,
   result: styled.div`
     font-size: 2rem;
-    cursor: pointer;
+    cursor: copy;
     user-select: none;
     &:hover {
       font-weight: bold;

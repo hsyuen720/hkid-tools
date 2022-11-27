@@ -1,6 +1,6 @@
 const theme = {
-  primary: "#12191d",
-  secondary: "#ffa73c",
+  primary: "#081C15",
+  secondary: "#F0E9BA",
 } as const;
 
 export default theme;
