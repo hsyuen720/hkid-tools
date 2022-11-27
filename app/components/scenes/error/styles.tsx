@@ -1,10 +1,19 @@
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
+import theme from "~/styles/theme";
 
 const styles = {
+  injectGlobal: css`
+    body {
+      background-color: ${theme.primary};
+      color: ${theme.secondary};
+    }
+  `,
   container: styled.div`
+    font-family: "Patua One", cursive;
     display: flex;
     height: inherit;
-    font-size: 20pt;
+    font-size: 16pt;
   `,
   content: styled.div`
     display: flex;
@@ -19,9 +28,9 @@ const styles = {
   statusCode: styled.div`
     font-size: 8em;
     line-height: 1;
-    text-shadow: 0.03em 0.03em 0 ${({ theme }) => "red"};
+    text-shadow: 0.03em 0.03em 0 black;
   `,
-  heading: styled.h1`
+  heading: styled.div`
     font-size: 2em;
     gap: 0.25em;
   `,

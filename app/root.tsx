@@ -16,9 +16,11 @@ import type { LinksFunction } from "@remix-run/node";
 import ErrorScenes from "~/components/scenes/error";
 
 export const links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: styles }];
+  return [
+    { rel: "stylesheet", href: styles },
+    { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Patua+One&display=swap" },
+  ];
 };
-
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
   title: "HKID Tools",
@@ -36,7 +38,7 @@ export function CatchBoundary() {
       </head>
       <body>
         <Global styles={globalStyle} />
-        <ErrorScenes status={caught.status} description={caught.statusText} />
+        <ErrorScenes status={caught.status} />
         <Scripts />
       </body>
     </html>

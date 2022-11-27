@@ -1,14 +1,7 @@
 import { Global } from "@emotion/react";
-import { type LinksFunction } from "@remix-run/node";
 import { useNavigate } from "@remix-run/react";
 import styles from "~/styles/landing.styles";
 
-export const links: LinksFunction = () => [
-  {
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Patua+One&display=swap",
-  },
-];
 const LandingPage = () => {
   const navigate = useNavigate();
   return (
